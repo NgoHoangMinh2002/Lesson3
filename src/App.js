@@ -1,23 +1,34 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import NhMFuncDemo from './component/NHM_Funcdemo'; 
+import NHMClassComp from './component/NHM_ClassComp'; 
 
 function App() {
+  const users = {
+    userName: "K22CNTT3",
+    password: "14092004",
+    fistName: "Ngo Hoang",
+    lastName: "Minh",
+  };
+
+  function formatName(user) {
+    return <h2>Xin Chào, {user.fistName} {user.lastName}</h2>;
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <p>FullName: {users.fistName} {users.lastName}</p>
+        {formatName(users)}
+      </div>
+      <div>
+        <NhMFuncDemo/>
+        <NhMFuncDemo userName="NHM" fullName="Ngo Hoang Minh" age="45" />
+      </div>
+      <div>
+        <NHMClassComp/>
+        <NHMClassComp company="123" course="Mingo"/>
+      </div>
     </div>
   );
 }
